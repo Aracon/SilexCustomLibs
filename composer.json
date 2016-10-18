@@ -1,0 +1,24 @@
+{
+    "name": "aracon/silex-custom-libs",
+    "description": "Some helpful libraries for Silex framework",
+    "type": "library",
+    "require": {
+        "php": ">=5.5.3.3",
+        "silex/silex": "~1.0"
+    },
+    "suggest": {
+        "colshrapnel/safemysql": "1.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Zhiznevskiy",
+            "email": "info@coding99.ru"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Aracon": "src/"
+        }
+    }
+}
