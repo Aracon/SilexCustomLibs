@@ -9,7 +9,7 @@
 namespace Aracon;
 
 use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\ServiceProviderInterface;
 
 
 class VariablesServiceProvider implements ServiceProviderInterface

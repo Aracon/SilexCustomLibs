@@ -10,7 +10,7 @@ namespace Aracon;
 
 use Bitrix24\Presets\App\App;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\ServiceProviderInterface;
 use SafeMySQL;
 
 class SafeMysqlServiceProvider implements ServiceProviderInterface

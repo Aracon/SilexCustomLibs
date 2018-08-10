@@ -8,7 +8,7 @@
 namespace Aracon;
 
 use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\ServiceProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class MenuServiceProvider implements ServiceProviderInterface
