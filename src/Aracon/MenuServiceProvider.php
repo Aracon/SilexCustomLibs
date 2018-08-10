@@ -7,13 +7,13 @@
 
 namespace Aracon;
 
-use Silex\Application;
+use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class MenuServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register(Container $app)
     {
         $app['app.menu'] = array();
         $app['app.menu.rendered'] = function ($app) {

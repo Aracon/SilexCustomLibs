@@ -8,14 +8,14 @@
 
 namespace Aracon;
 
-use Silex\Application;
+use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
 
 class VariablesServiceProvider implements ServiceProviderInterface
 {
 
-    public function register(Application $app)
+    public function register(Container $app)
     {
         $app['var.table'] = 'variable';
         $app['var.db'] = null;

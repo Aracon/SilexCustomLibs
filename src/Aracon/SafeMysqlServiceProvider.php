@@ -9,13 +9,13 @@
 namespace Aracon;
 
 use Bitrix24\Presets\App\App;
-use Silex\Application;
+use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use SafeMySQL;
 
 class SafeMysqlServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register(Container $app)
     {
 
         $app['safemysql.user'] = '';
