@@ -54,14 +54,14 @@ class SafeMysqlServiceProvider implements ServiceProviderInterface
 
     }
 
-    private function setAppMysqli(Application $app) {
-        $app['mysqli'] = function (Application $app) {
+    private function setAppMysqli(Container $app) {
+        $app['mysqli'] = function (Container $app) {
             $conn = $this->connectToMysql($app);
             return $conn;
         };
     }
 
-    private function setAppSafeMysql(Application $app) {
+    private function setAppSafeMysql(Container $app) {
         $app['safemysql'] = function ($app) {
             $param = array(
                 'mysqli' => $app['mysqli'],
@@ -72,7 +72,7 @@ class SafeMysqlServiceProvider implements ServiceProviderInterface
         };
     }
 
-    public function connectToMysql(Application $app) {
+    public function connectToMysql(Container $app) {
         @$conn = mysqli_connect($app['safemysql.host'],
             $app['safemysql.user'], $app['safemysql.password'], $app['safemysql.dbname'],
             $app['safemysql.port'], $app['safemysql.socket']);
@@ -88,8 +88,5 @@ class SafeMysqlServiceProvider implements ServiceProviderInterface
         return $conn;
     }
 
-    public function boot(Application $app)
-    {
-    }
 
 }

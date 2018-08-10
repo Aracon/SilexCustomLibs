@@ -10,6 +10,7 @@ namespace Aracon;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
+use Silex\Application;
 
 
 class VariablesServiceProvider implements ServiceProviderInterface
@@ -31,8 +32,5 @@ class VariablesServiceProvider implements ServiceProviderInterface
         };
     }
 
-    public function boot(Application $app)
-    {
-    }
 
 }

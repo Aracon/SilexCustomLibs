@@ -10,8 +10,10 @@ namespace Aracon;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Silex\Application;
+use Silex\Api\BootableProviderInterface;
 
-class MenuServiceProvider implements ServiceProviderInterface
+class MenuServiceProvider implements ServiceProviderInterface, BootableProviderInterface
 {
     public function register(Container $app)
     {
@@ -20,16 +22,16 @@ class MenuServiceProvider implements ServiceProviderInterface
             return $this->renderMenu($app);
         };
 
+
+    }
+
+    public function boot(Application $app)
+    {
         $app->before(function (Request $request, Application $app) {
             if(isset($app['view.add'])) {
                 $app['view.add']($app, 'menu', $this->renderMenu($app));
             }
         });
-    }
-
-    public function boot(Application $app)
-    {
-
     }
 
     private function renderMenu(Application $app)
