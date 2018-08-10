@@ -16,9 +16,9 @@ class MenuServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $app['app.menu'] = array();
-        $app['app.menu.rendered'] = $app->share(function ($app) {
+        $app['app.menu.rendered'] = function ($app) {
             return $this->renderMenu($app);
-        });
+        };
 
         $app->before(function (Request $request, Application $app) {
             if(isset($app['view.add'])) {

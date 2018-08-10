@@ -19,7 +19,7 @@ class VariablesServiceProvider implements ServiceProviderInterface
     {
         $app['var.table'] = 'variable';
         $app['var.db'] = null;
-        $app['var'] = $app->share(function($app) {
+        $app['var'] = function($app) {
             if($app['var.db']==null) {
                 throw new \ErrorException("Database for VariablesServiceProvider not set");
             }
@@ -28,7 +28,7 @@ class VariablesServiceProvider implements ServiceProviderInterface
                 $var_svc->setLogger($app['monolog']);
             }
             return $var_svc;
-        });
+        };
     }
 
     public function boot(Application $app)

@@ -55,21 +55,21 @@ class SafeMysqlServiceProvider implements ServiceProviderInterface
     }
 
     private function setAppMysqli(Application $app) {
-        $app['mysqli'] = $app->share(function (Application $app) {
+        $app['mysqli'] = function (Application $app) {
             $conn = $this->connectToMysql($app);
             return $conn;
-        });
+        };
     }
 
     private function setAppSafeMysql(Application $app) {
-        $app['safemysql'] = $app->share(function ($app) {
+        $app['safemysql'] = function ($app) {
             $param = array(
                 'mysqli' => $app['mysqli'],
                 'errmode' => $app['safemysql.errmode'],
                 'exception' => $app['safemysql.exception'],
             );
             return new SafeMySQL($param);
-        });
+        };
     }
 
     public function connectToMysql(Application $app) {
