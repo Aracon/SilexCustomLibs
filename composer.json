@@ -2,6 +2,7 @@
     "name": "aracon/silex-custom-libs",
     "description": "Some helpful libraries for Silex framework",
     "type": "library",
+    "version": "1.0",
     "require": {
         "php": ">=5.5.3.3",
         "silex/silex": "~1.0"
